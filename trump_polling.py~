@@ -1,0 +1,9 @@
+import pandas as pd
+
+# Read Trump Approval Rating .csv from URL
+
+url = "https://static.dwcdn.net/data/wWI2Y.csv?v=1749325560000"
+
+df = pd.read_csv(url)
+
+print(df.head())
