@@ -4,6 +4,8 @@ from io import StringIO
 
 from datetime import datetime
 
+import matplotlib.pyplot as plt
+
 # Define Functions
 
 def split_date_range(df, column_name, start_col = 'date_start', end_col = 'date_end'):
@@ -59,4 +61,18 @@ df = pd.read_csv(StringIO(response.text))
 
 df_clean = split_date_range(df, 'Dates')
 
-print(df_clean[['date_start','date_end']])
+df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
+
+# Create Plot
+
+plt.figure(figsize = (8,6))
+
+plt.scatter(df_plot['date_end'], df_plot['Net'], alpha = 0.7, c = 'red', s = 50)
+
+plt.xlabel('Date Polling Ended')
+plt.ylabel('Approval Rating - Dissaproval Rating')
+plt.title('Trump Net Approval Over Time')
+
+plt.grid(False)
+
+plt.savefig('trump_polling_scatter.png', dpi = 300, bbox_inches = 'tight')
