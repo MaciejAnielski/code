@@ -73,6 +73,8 @@ plt.xlabel('Date Polling Ended')
 plt.ylabel('Approval Rating - Dissaproval Rating')
 plt.title('Trump Net Approval Over Time')
 
+plt.xticks(pd.date_range(start = min(df_plot['date_end']), end = max(df_plot['date_end'])))
+
 plt.grid(False)
 
 plt.savefig('trump_polling_scatter.png', dpi = 300, bbox_inches = 'tight')
