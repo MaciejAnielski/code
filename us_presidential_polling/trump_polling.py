@@ -63,7 +63,7 @@ df_clean = split_date_range(df, 'Dates')
 
 # Save Clean Data
 
-df_clean.to_csv('trump_approval.csv', index = False)
+df_clean[['date_start','date_end','Influence','Approve','Disapprove','Net']].to_csv('trump_approval.csv', index = False)
 
 # Select Only Relevant Variables for Plot
 
