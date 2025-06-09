@@ -1,6 +1,6 @@
 python3 ~/code/us_presidential_polling/trump_polling.py
 
-cwd = $(pwd)
+cwd=$(pwd)
 
 echo "$cwd"
 
