@@ -61,6 +61,12 @@ df = pd.read_csv(StringIO(response.text))
 
 df_clean = split_date_range(df, 'Dates')
 
+# Save Clean Data
+
+df_clean.to_csv('trump_approval.csv', index = False)
+
+# Select Only Relevant Variables for Plot
+
 df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
 
 # Create Daily Average
