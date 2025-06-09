@@ -8,5 +8,5 @@ git add .
 git commit -m "Hourly Data Update."
 git push origin main
 
-cd cwd
+cd "$cwd"
 
