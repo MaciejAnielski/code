@@ -2,8 +2,6 @@ python3 ~/code/us_presidential_polling/trump_polling.py
 
 cwd=$(pwd)
 
-echo "$cwd"
-
 cd ~/code
 
 git add .

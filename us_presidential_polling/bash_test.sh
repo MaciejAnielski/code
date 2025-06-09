@@ -1,3 +1,0 @@
-cwd=$(pwd)
-
-echo $cwd
