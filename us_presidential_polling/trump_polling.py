@@ -65,7 +65,9 @@ df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
 
 # Create Daily Average
 
-df_plot_mean = df_plot.groupby('date_end').rolling(window = 14, min_periods = 1, center = True).mean()['Net'].reset_index()
+df_plot_mean = df_plot.groupby('date_end').mean()['Net'].rolling(window = 7, min_periods = 1, center = True).mean().reset_index()
+
+print(df_plot_mean)
 
 # Create Plot
 
@@ -84,3 +86,4 @@ plt.xticks(pd.date_range(start = min(df_plot['date_end']), end = max(df_plot['da
 plt.grid(False)
 
 plt.savefig('trump_polling_scatter.png', dpi = 300, bbox_inches = 'tight')
+
