@@ -65,7 +65,7 @@ df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
 
 # Create Daily Average
 
-df_plot_mean = df_plot.groupby('date_end').mean()['Net'].reset_index()
+df_plot_mean = df_plot.groupby('date_end').rolling(window = 7).mean()['Net'].reset_index()
 
 # Create Plot
 
