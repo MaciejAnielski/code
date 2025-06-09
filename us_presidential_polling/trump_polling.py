@@ -67,15 +67,13 @@ df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
 
 df_plot_mean = df_plot.groupby('date_end').mean()['Net'].rolling(window = 7, min_periods = 1, center = True).mean().reset_index()
 
-print(df_plot_mean)
-
 # Create Plot
 
 plt.figure(figsize = (8,6))
 
 plt.scatter(df_plot['date_end'], df_plot['Net'], alpha = 0.3, c = 'red', s = 50)
 
-plt.plot(df_plot_mean['date_end'], df_plot_mean['Net'], c = 'red')
+plt.plot(df_plot_mean['date_end'], df_plot_mean['Net'], c = 'red', linewidth = 3)
 
 plt.xlabel('Date Polling Ended')
 plt.ylabel('Approval Rating - Dissaproval Rating')
