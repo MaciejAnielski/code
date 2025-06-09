@@ -63,11 +63,17 @@ df_clean = split_date_range(df, 'Dates')
 
 df_plot = df_clean[['date_end','Approve', 'Disapprove', 'Net']]
 
+# Create Daily Average
+
+df_plot_mean = df_plot.groupby('date_end').mean()['Net'].reset_index()
+
 # Create Plot
 
 plt.figure(figsize = (8,6))
 
-plt.scatter(df_plot['date_end'], df_plot['Net'], alpha = 0.7, c = 'red', s = 50)
+plt.scatter(df_plot['date_end'], df_plot['Net'], alpha = 0.3, c = 'red', s = 50)
+
+plt.plot(df_plot_mean['date_end'], df_plot_mean['Net'], c = 'red')
 
 plt.xlabel('Date Polling Ended')
 plt.ylabel('Approval Rating - Dissaproval Rating')
