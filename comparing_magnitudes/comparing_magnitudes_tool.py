@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+theta = np.linspace(0, 2 * np.pi, 100)
+
+radius = 1
+
+x = radius * np.cos(theta)
+y = radius * np.sin(theta)
+
+plt.figure(figsize = (8,8))
+plt.plot(x, y, 'b-', linewidth = 2, label = 'Circle (r=1)')
+plt.axis('equal')
+plt.savefig('circle.png', dpi = 300)
